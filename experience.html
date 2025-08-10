@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Experience — Shreshta Prabhu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0e0f12;
+      --bg-2: #14161b;
+      --panel: #111318;
+      --text: #1a1a1a;
+      --muted: #555;
+      --accent: #4da3ff;
+      --link: #4da3ff;
+      --border: #ddd;
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:#fff;color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;line-height:1.65}
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .layout{display:grid;grid-template-columns:340px 1fr;min-height:100vh;max-width:var(--maxw);margin:0 auto}
+    aside{position:sticky;top:0;height:100vh;padding:48px 28px;border-right:1px solid var(--border);background:radial-gradient(1200px 800px at -20% -10%, #1a1e26 0%, #12151b 35%, #0c0f14 75%, #0a0c11 100%);color:#e9edf1}
+    .brand{font-family:"Playfair Display",serif;font-weight:900;font-size:64px;line-height:.95;margin:0 0 18px}
+    .tagline{color:#aab3bf;font-size:18px;margin:0 0 28px}
+    nav{display:flex;flex-direction:column;gap:12px;margin:22px 0 24px}
+    nav a{color:#e9edf1;font-weight:600}
+    nav a.active{color:#fff}
+    .license{position:absolute;bottom:28px;left:28px;right:28px;color:#aab3bf;font-size:14px}
+
+    main{padding:56px 56px 80px}
+    h1{font-size:42px;line-height:1.15;margin:0 0 24px}
+
+    /* Experience list like the screenshot */
+    .jobs{max-width:760px}
+    .job{margin:10px 0 36px}
+    .job h2{font-size:26px; line-height:1.25; margin:0 0 4px; font-weight:700} 
+    .job .meta{color:var(--muted);font-weight:600;margin:0 0 6px; font-size:14px}
+
+    /* bullet styling */
+    .top{margin:10px 0 0 22px; padding:0}
+    .top>li{margin-bottom:10px}
+    .top>li>strong{font-weight:700}
+    .top ul{margin:8px 0 0 18px}
+
+    @media (max-width:980px){
+      .layout{grid-template-columns:1fr}
+      aside{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--border);padding:36px 22px}
+      .brand{font-size:48px}
+      main{padding:28px 20px 56px}
+      .license{position:static;margin-top:28px}
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside>
+      <h1 class="brand">Shreshta<br/>Prabhu</h1>
+      <p class="tagline">Electrical Engineering @ University of Michigan</p>
+      <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a class="active" href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+      <p class="license">© 2025 Shreshta Prabhu. All rights reserved.</p>
+    </aside>
+
+    <main>
+      <h1>Experience</h1>
+      <section class="jobs">
+        <!-- SEEDER Group -->
+        <article class="job">
+          <h2>SEEDER Group, National University of Singapore</h2>
+          <p class="meta">Summer Research Intern · May 2025 – July 2025</p>
+          <ul class="top">
+            </li>
+          </ul>
+        </article>
+
+        <!-- Quest Global -->
+        <article class="job">
+          <h2>Quest Global</h2>
+          <p class="meta">Embedded Product Engineering Intern · Aug 2024 – July 2025 </p>
+          <ul class="top">
+            </li>
+          </ul>
+        </article>
+
+        <!-- MASA leadership (optional on experience page) -->
+        <article class="job">
+          <h2>Michigan Aeronautical Science Association (MASA)</h2>
+          <p class="meta">Avionics Project Lead & Outreach Director · Dec 2023 – Present</p>
+          <ul class="top">
+            </li>
+          </ul>
+        </article>
+
+        <article class="job">
+          <h2>Opri Lab, University of Michigan</h2>
+          <p class="meta">Undergraduate Researcher · Dec 2024 – May 2025</p>
+          <ul class="top">
+            </li>
+          </ul>
+        </article>
+        
+      </section>
+    </main>
+  </div>
+</body>
+</html>
