@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>High-Altitude Atmospheric Analysis Electronics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#0b0d12;color:#e9edf1;font-family:Inter,system-ui;line-height:1.65}a{color:#7bb3ff;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:900px;margin:0 auto;padding:28px 20px 64px}header{margin-bottom:18px}.crumb{font-size:14px;color:#aab3bf}h1{font-size:40px;margin:8px 0 14px}.meta{color:#aab3bf;font-size:15px;margin-bottom:24px}.card{background:#111318;border:1px solid #1f232b;border-radius:16px;padding:18px 18px 2px;margin:20px 0}img{max-width:100%;border-radius:14px}footer{margin-top:48px;color:#aab3bf;font-size:14px}</style>
+</head><body><div class="wrap">
+<header><a class="crumb" href="../index.html">← Back to projects</a></header>
+<h1>High-Altitude Atmospheric Analysis Electronics</h1>
+<div class="meta">Jan 2024–Apr 2024 — under Prof. Aaron Ridley</div>
+<p>End-to-end design, test, and flight of a balloon payload measuring GPS, humidity, VO₂, UV radiation, pressure, and acceleration. Custom PCB in Altium; firmware in Arduino IDE; analysis in MATLAB.</p>
+<div class="card"><h3>Highlights</h3><ul>
+<li>Successful flight and dataset; validated sensor calibration post-recovery.</li>
+<li>Reliable telemetry/data-logging across temperature and pressure extremes.</li>
+</ul></div>
+<div class="card"><h3>Tech</h3><p>Altium Designer, Arduino IDE, MATLAB, environmental sensors, GPS.</p></div>
+<footer>© 2025 Shreshta Prabhu</footer>
+</div></body></html>
