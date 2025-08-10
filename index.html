@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home — Shreshta Prabhu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0e0f12;
+      --bg-2: #14161b;
+      --panel: #111318;
+      --text: #1a1a1a;
+      --muted: #555;
+      --accent: #4da3ff;
+      --link: #4da3ff;
+      --border: #ddd;
+      --maxw: 1100px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0; background:#fff; color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; line-height:1.6}
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+    img{max-width:100%; display:block; border-radius:8px}
+    .layout{display:grid; grid-template-columns: 340px 1fr; min-height:100vh; max-width:var(--maxw); margin:0 auto}
+    aside.sidebar{position:sticky; top:0; align-self:start; height:100vh; padding:48px 28px; border-right:1px solid var(--border); background: radial-gradient(1200px 800px at -20% -10%, #1a1e26 0%, #12151b 35%, #0c0f14 75%, #0a0c11 100%); color:#e9edf1}
+    .brand{font-family:"Playfair Display", serif; letter-spacing:0.4px; line-height:0.95; font-weight:900; font-size:64px; margin:0 0 18px;}
+    .tagline{color:var(--muted); font-size:18px; margin:0 0 28px}
+    .nav{display:flex; flex-direction:column; gap:12px; margin: 22px 0 24px}
+    .nav a{color:#e9edf1; font-weight:600}
+    .nav a.active{color:#fff}
+    .icons{display:flex; gap:14px; margin-top:10px}
+    .icon{width:22px; height:22px; display:inline-grid; place-items:center; border-radius:8px; border:1px solid var(--border)}
+    .icon:hover{background:var(--bg-2)}
+    .license{position:absolute; bottom:28px; left:28px; right:28px; color:var(--muted); font-size:14px}
+    .content{padding:56px 56px 80px; background:#fff}
+    .content h1{font-size:48px; margin:0 0 18px}
+    .intro{max-width:700px; font-size:20px}
+    .buttons{margin-top:28px; display:flex; gap:18px; flex-wrap:wrap}
+    .btn{background:var(--accent); color:#fff; padding:10px 20px; border-radius:8px; font-weight:600}
+    .btn:hover{filter:brightness(1.1)}
+    @media (max-width:980px){
+      .layout{grid-template-columns:1fr}
+      aside.sidebar{position:relative; height:auto; border-right:none; border-bottom:1px solid var(--border)}
+      .brand{font-size:48px}
+      .license{position:static; margin-top:28px}
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h1 class="brand">Shreshta<br/>Prabhu</h1>
+      <p class="tagline">Electrical Engineering @ University of Michigan</p>
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+      <div class="icons">
+        <a class="icon" href="#" title="RSS"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"/><path d="M4 4a16 16 0 0 1 16 16"/><circle cx="5" cy="19" r="1"/></svg></a>
+        <a class="icon" href="mailto:you@example.com" title="Email"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg></a>
+      </div>
+      <p class="license">© 2025 Shreshta Prabhu. All rights reserved.</p>
+    </aside>
+    <main class="content">
+      <h1>Welcome!</h1>
+      <div class="intro">
+        <p>I’m Shreshta, an electrical engineering student passionate about building reliable hardware systems — from avionics for student rocketry to autonomous robotics and energy-efficient compute architectures.</p>
+        <p>This site is a hub for my work, projects, and experiences. Feel free to explore!</p>
+      </div>
+      <div class="buttons">
+        <a href="about.html" class="btn">Learn More About Me</a>
+        <a href="projects.html" class="btn">See My Projects</a>
+        <a href="experience.html" class="btn">View My Experience</a>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
