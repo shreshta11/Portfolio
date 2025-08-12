@@ -27,7 +27,7 @@
     .layout{display:grid;grid-template-columns:340px 1fr;min-height:100vh;max-width:var(--maxw);margin:0 auto}
     aside{position:sticky;top:0;height:100vh;padding:48px 28px;border-right:1px solid var(--border);background:radial-gradient(1200px 800px at -20% -10%, #1a1e26 0%, #12151b 35%, #0c0f14 75%, #0a0c11 100%);color:#e9edf1}
     .brand{font-family:"Playfair Display",serif;font-weight:900;font-size:64px;line-height:.95;margin:0 0 18px}
-    .tagline{color:#aab3bf;font-size:18px;margin:0 0 28px}
+    .tagline{color:#eef3ff;font-size:18px;margin:0 0 28px}
     nav{display:flex;flex-direction:column;gap:12px;margin:22px 0 24px}
     nav a{color:#e9edf1;font-weight:600}
     nav a.active{color:#fff}
@@ -36,16 +36,19 @@
     main{padding:56px 56px 80px}
     h1{font-size:42px;line-height:1.15;margin:0 0 24px}
 
-    /* Experience list like the screenshot */
+    /* Section dividers */
+    .section{margin:8px 0 18px; font-size:13px; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); font-weight:700}
+    .hr{height:1px; background:var(--border); border:0; margin:12px 0 24px}
+
+    /* Experience list */
     .jobs{max-width:760px}
-    .job{margin:10px 0 36px}
-    .job h2{font-size:26px; line-height:1.25; margin:0 0 4px; font-weight:700} 
+    .job{margin:10px 0 28px}
+    .job h2{font-size:26px; line-height:1.25; margin:0 0 4px; font-weight:700}
     .job .meta{color:var(--muted);font-weight:600;margin:0 0 6px; font-size:14px}
 
     /* bullet styling */
     .top{margin:10px 0 0 22px; padding:0}
     .top>li{margin-bottom:10px}
-    .top>li>strong{font-weight:700}
     .top ul{margin:8px 0 0 18px}
 
     @media (max-width:980px){
@@ -64,9 +67,9 @@
       <p class="tagline">Electrical Engineering @ University of Michigan</p>
       <nav aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="about_page.html">About</a>
+        <a href="about.html">About</a>
         <a class="active" href="experience.html">Experience</a>
-        <a href="projects_page_shreshta_projects.html">Projects</a>
+        <a href="projects.html">Projects</a>
       </nav>
       <p class="license">© 2025 Shreshta Prabhu. All rights reserved.</p>
     </aside>
@@ -82,53 +85,56 @@
           <h2>SEEDER Group, National University of Singapore</h2>
           <p class="meta">Summer Research Intern · May 2025 – July 2025</p>
           <ul class="top">
-            </li>
+            <li>Co‑designed a PIM‑NoC accelerator for energy‑efficient Transformer inference; explored memory tech, NoC topology, and dataflow trade‑offs.</li>
+            <li>Implemented a 6‑node RTL PIM‑NoC for single‑headed attention (DRAM compute, weight‑stationary dataflow, X–Y routing, custom SoftMax).</li>
+            <li>Stage‑by‑stage profiling revealed routing/data‑movement bottlenecks; ~2.1× lower energy and ~8× lower latency vs. a PyTorch CPU baseline.</li>
           </ul>
         </article>
 
         <!-- Quest Global -->
         <article class="job">
           <h2>Quest Global</h2>
-          <p class="meta">Embedded Product Engineering Intern · Aug 2024 – July 2025 </p>
+          <p class="meta">Embedded Product Engineering Intern · May 2024 – July 2024</p>
           <ul class="top">
-            </li>
+            <li>Designed a discrete buck converter for residential power; improved efficiency and thermals using OrCAD.</li>
+            <li>Modeled EV power systems in LTspice/MATLAB; simulated waveforms and validated SMPS topologies.</li>
+            <li>Supported design reviews and documentation for an energy‑sector client; ensured compliance with standards/specs.</li>
           </ul>
         </article>
 
+        <!-- Opri Lab -->
         <article class="job">
           <h2>Opri Lab, University of Michigan</h2>
           <p class="meta">Undergraduate Researcher · Dec 2024 – May 2025</p>
           <ul class="top">
-            </li>
+            <li><!-- Add 2–3 bullets about your specific research contributions here. --></li>
           </ul>
         </article>
 
-
-
-         <h2 class="section">Leadership & Clubs</h2>
+        <h2 class="section">Leadership & Clubs</h2>
         <hr class="hr"/>
 
-        
-        <!-- MASA leadership (optional on experience page) -->
+        <!-- MASA leadership -->
         <article class="job">
           <h2>Michigan Aeronautical Science Association (MASA)</h2>
-                    <p class="meta"> DEI & Outreach Director · May 2025 – Present</p>
-          <p class="meta">Avionics Project Lead · Dec 2023 – Present </p>
+          <p class="meta">Avionics Project Lead · Dec 2023 – Present · DEI & Outreach Director · May 2025 – Present</p>
           <ul class="top">
-            </li>
+            <li>Lead PDB design/validation for the “Limelight” sounding rocket in Altium; ensured reliable ground→flight battery transition.</li>
+            <li>Conduct switching tests and troubleshoot integration; Console Operator during cold‑flow tests for avionics reliability and GSE control.</li>
           </ul>
         </article>
 
+        <!-- Engineering Honors SAB -->
         <article class="job">
-          <h2>Engineering Honors Student Advisory Board, University of Michigan</h2>
-          <p class="meta"> President · May 2025 – Present</p>
+          <h2>Engineering Honors Student Advisory Board — University of Michigan</h2>
+          <p class="meta">President · May 2025 – Present</p>
           <ul class="top">
-            </li>
+            <li><!-- Add 1–2 bullets on initiatives, events, or programs you lead. --></li>
           </ul>
         </article>
 
-
-         <article class="job">
+        <!-- Michigan Sahana -->
+        <article class="job">
           <h2>Michigan Sahana</h2>
           <p class="meta">Committee Member · Jan 2025 – Present</p>
           <ul class="top">
