@@ -28,14 +28,14 @@
     .layout{display:grid; grid-template-columns: 340px 1fr; min-height:100vh; max-width:var(--maxw); margin:0 auto}
     aside.sidebar{position:sticky; top:0; align-self:start; height:100vh; padding:48px 28px; border-right:1px solid var(--border); background: radial-gradient(1200px 800px at -20% -10%, #1a1e26 0%, #12151b 35%, #0c0f14 75%, #0a0c11 100%); color:#e9edf1}
     .brand{font-family:"Playfair Display", serif; letter-spacing:0.4px; line-height:0.95; font-weight:900; font-size:64px; margin:0 0 18px;}
-    .tagline{color:var(--muted); font-size:18px; margin:0 0 28px}
+    .tagline{color:#f7faff; font-size:18px; margin:0 0 28px} /* lighter for contrast */
     .nav{display:flex; flex-direction:column; gap:12px; margin: 22px 0 24px}
     .nav a{color:#e9edf1; font-weight:600}
     .nav a.active{color:#fff}
     .icons{display:flex; gap:14px; margin-top:10px}
     .icon{width:22px; height:22px; display:inline-grid; place-items:center; border-radius:8px; border:1px solid var(--border)}
     .icon:hover{background:var(--bg-2)}
-    .license{position:absolute; bottom:28px; left:28px; right:28px; color:var(--muted); font-size:14px}
+    .license{position:absolute; bottom:28px; left:28px; right:28px; color:#aab3bf; font-size:14px}
 
     .content{padding:56px 56px 80px; background:#fff}
     .content h1{font-size:48px; margin:0 0 28px}
@@ -45,14 +45,6 @@
     .project:last-child{border-bottom:none}
     .project h2{font-size:26px; margin:0 0 8px}
     .meta{color:var(--muted); font-size:14px; margin-bottom:10px}
-    .more{white-space:nowrap}
-
-    @media (max-width:980px){
-      .layout{grid-template-columns:1fr}
-      aside.sidebar{position:relative; height:auto; border-right:none; border-bottom:1px solid var(--border)}
-      .brand{font-size:48px}
-      .license{position:static; margin-top:28px}
-    }
   </style>
 </head>
 <body>
@@ -60,30 +52,29 @@
     <aside class="sidebar">
       <h1 class="brand">Shreshta<br/>Prabhu</h1>
       <p class="tagline">Electrical Engineering @ University of Michigan</p>
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about_page.html">About</a>
         <a href="experience.html">Experience</a>
         <a href="projects_page_shreshta_projects.html" class="active">Projects</a>
       </nav>
-      <div class="icons">
-  <!-- Email -->
-  <a class="icon" href="mailto:shreshta@umich.edu" title="Email" aria-label="Email">
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
-         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/>
-    </svg>
-  </a>
 
-  <!-- LinkedIn -->
-  <a class="icon" href="www.linkedin.com/in/shreshta-prabhu-242b95242" target="_blank" rel="noopener"
-     title="LinkedIn" aria-label="LinkedIn">
-    <!-- LinkedIn 'in' logo (inherits currentColor) -->
-    <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
-      <path fill="currentColor" d="M22.225 0H1.771C.792 0 0 .774 0 1.728v20.543C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.728C24 .774 23.2 0 22.225 0zM7.114 20.452H3.56V9h3.554v11.452zM5.337 7.433A2.07 2.07 0 1 1 5.337 3.293a2.07 2.07 0 0 1 0 4.14zM20.447 20.452h-3.554V14.89c0-1.327-.025-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.942v5.657H9.351V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 3.605 0 4.27 2.372 4.27 5.455v6.288z"/>
-    </svg>
-  </a>
-</div>
+      <div class="icons">
+        <!-- Email -->
+        <a class="icon" href="mailto:shreshta@umich.edu" title="Email" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+               stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/>
+          </svg>
+        </a>
+        <!-- LinkedIn (use full https link) -->
+        <a class="icon" href="https://www.linkedin.com/in/shreshta-prabhu-242b95242/" target="_blank" rel="noopener noreferrer"
+           title="LinkedIn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <path fill="currentColor" d="M22.225 0H1.771C.792 0 0 .774 0 1.728v20.543C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.728C24 .774 23.2 0 22.225 0zM7.114 20.452H3.56V9h3.554v11.452zM5.337 7.433A2.07 2.07 0 1 1 5.337 3.293a2.07 2.07 0 0 1 0 4.14zM20.447 20.452h-3.554V14.89c0-1.327-.025-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.942v5.657H9.351V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 3.605 0 4.27 2.372 4.27 5.455v6.288z"/>
+          </svg>
+        </a>
+      </div>
 
       <p class="license">© 2025 Shreshta Prabhu. All rights reserved.</p>
     </aside>
@@ -92,22 +83,22 @@
       <h1>Projects</h1>
       <section class="list">
         <article class="project">
-          <h2><a href="projects/noc-accelerator">NoC Accelerator using Processing‑in‑Memory</a></h2>
+          <h2><a href="projects/noc-accelerator.html">NoC Accelerator using Processing-in-Memory</a></h2>
           <p>Contributed to the hardware–software co-design of a PIM-NoC accelerator for energy-efficient Transformer inference, with the SEEDER Group at the National University of Singapore.</p>
         </article>
 
         <article class="project">
-          <h2><a href="projects/masa_avionics.html"> Avionics for MASA Rocketry</a></h2>
-          <p>Designed the power distribution board for the ‘Limelight’ sounding rocket, with the Michigan Aeronautical Science Association (MASA) — UM's student-led rocketry team.</p>
+          <h2><a href="projects/masa_avionics.html">Avionics for MASA Rocketry</a></h2>
+          <p>Designed the power distribution board for the ‘Limelight’ sounding rocket with the Michigan Aeronautical Science Association (MASA), UM’s student-led rocketry team.</p>
         </article>
 
         <article class="project">
           <h2><a href="projects/rescue_robot.html">Autonomous Rescue Operations Robot</a></h2>
-          <p>Integrated drivers, sensors, and power; C/C++ control on BeagleBone Blue and Arduino Nano for navigation, obstacle detection, and autonomous decision‑making.</p>
+          <p>Integrated drivers, sensors, and power; C/C++ control on BeagleBone Blue and Arduino Nano for navigation, obstacle detection, and autonomous decision-making.</p>
         </article>
 
         <article class="project">
-          <h2><a href="projects/atm_payload.html">High‑Altitude Atmospheric Analysis Electronics</a></h2>
+          <h2><a href="projects/atm_payload.html">High-Altitude Atmospheric Analysis Electronics</a></h2>
           <p>Custom PCB payload and firmware for a balloon flight measuring GPS, humidity, VO₂, UV, pressure, and acceleration.</p>
         </article>
       </section>
