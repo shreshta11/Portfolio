@@ -17,35 +17,59 @@
       --accent: #4da3ff;
       --link: #4da3ff;
       --border: #ddd;
-      --maxw: 1100px;
+      --content-max: 920px;
     }
     *{box-sizing:border-box}
     body{margin:0; background:#fff; color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; line-height:1.6}
     a{color:var(--link); text-decoration:none}
     a:hover{text-decoration:underline}
     img{max-width:100%; display:block; border-radius:8px}
-    .layout{display:grid; grid-template-columns: 340px 1fr; min-height:100vh; max-width:var(--maxw); margin:0 auto}
-    aside.sidebar{position:sticky; top:0; align-self:start; height:100vh; padding:48px 28px; border-right:1px solid var(--border); background: radial-gradient(1200px 800px at -20% -10%, #1a1e26 0%, #12151b 35%, #0c0f14 75%, #0a0c11 100%); color:#e9edf1}
-    .brand{font-family:"Playfair Display", serif; letter-spacing:0.4px; line-height:0.95; font-weight:900; font-size:64px; margin:0 0 18px;}
-    .tagline{color:var(--muted); font-size:18px; margin:0 0 28px}
+
+    /* GRID LAYOUT */
+    .layout{display:grid; grid-template-columns: 360px minmax(0,1fr); width:100%; min-height:100vh}
+
+    /* SIDEBAR */
+    aside.sidebar{position:sticky; top:0; align-self:start; height:100svh; padding:84px 32px; border-right:1px solid var(--border); background: radial-gradient(1200px 800px at -20% -10%, #1a1e26 0%, #12151b 35%, #0c0f14 75%, #0a0c11 100%); color:#e9edf1}
+    .brand{font-family:"Playfair Display", serif; letter-spacing:0.4px; line-height:0.95; font-weight:900; font-size:68px; margin:0 0 18px}
+    .tagline{color:#C7CCD6; font-size:18px; margin:0 0 28px} 
     .nav{display:flex; flex-direction:column; gap:12px; margin: 22px 0 24px}
-    .nav a{color:#f8fafc; font-weight:600}
+    .nav a{color:#e9edf1; font-weight:600}
     .nav a.active{color:#fff}
-    .icons{display:flex; gap:14px; margin-top:10px}
-    .icon{width:22px; height:22px; display:inline-grid; place-items:center; border-radius:8px; border:1px solid var(--border)}
-    .icon:hover{background:var(--bg-2)}
-    .license{position:absolute; bottom:28px; left:28px; right:28px; color:var(--muted); font-size:14px}
-    .content{padding:56px 56px 80px; background:#fff}
-    .content h1{font-size:48px; margin:0 0 18px}
-    .intro{max-width:700px; font-size:20px}
-    .buttons{margin-top:28px; display:flex; gap:18px; flex-wrap:wrap}
-    .btn{background:var(--accent); color:#fff; padding:10px 20px; border-radius:8px; font-weight:600}
-    .btn:hover{filter:brightness(1.1)}
-    @media (max-width:980px){
-      .layout{grid-template-columns:1fr}
-      aside.sidebar{position:relative; height:auto; border-right:none; border-bottom:1px solid var(--border)}
-      .brand{font-size:48px}
-      .license{position:static; margin-top:28px}
+    .icons{display:flex; gap:12px; margin-top:10px}
+    .icon{width:44px; height:44px; display:inline-grid; place-items:center; border-radius:12px; border:1.5px solid rgba(255,255,255,.18); background:rgba(255,255,255,.03); color:#e9edf1; transition:transform .15s ease, background .15s ease}
+    .icon:hover{background:rgba(255,255,255,.06); text-decoration:none; transform:translateY(-1px)}
+    .icon svg{width:22px; height:22px}
+    .icon--mail{color: var(--link)}
+    .icon--li svg path{fill: var(--link)}
+    .license{position:absolute; bottom:28px; left:32px; right:32px; color:#aab3bf; font-size:14px}
+
+    /* CONTENT */
+    .content{background:#fff; padding:64px 72px 80px}
+    .content__inner{max-width: var(--content-max); margin-right:auto; margin-left:0}
+
+    /* HOMEPAGE */
+    .kicker{display:block; text-transform:uppercase; letter-spacing:.12em; font-size:13px; color:var(--muted); font-weight:700}
+    .hero-title{font-size:48px; line-height:1.15; margin:8px 0 12px}
+    .lead{font-size:20px; color:#2a2a2a; margin:0 0 20px}
+
+    .btn-row{display:flex; gap:12px; flex-wrap:wrap; margin:22px 0 36px}
+    .btn{display:inline-block; padding:12px 16px; border:1px solid var(--text); border-radius:12px; font-weight:600; color:var(--text); background:#fff}
+    .btn:hover{text-decoration:none; transform:translateY(-1px)}
+    .btn.primary{background:var(--text); color:#fff}
+
+    .section{margin:36px 0}
+    .section h2{font-size:22px; margin:0 0 10px}
+
+    .items{display:grid; gap:16px}
+    .item{padding:16px 0; border-bottom:1px solid var(--border)}
+    .item:last-child{border-bottom:none}
+    .item h3{font-size:20px; margin:0 0 6px}
+    .item p{margin:0}
+
+    @media (max-width: 920px){
+      .layout{grid-template-columns: 1fr}
+      aside.sidebar{position:static; height:auto; padding:48px 24px}
+      .content{padding:40px 24px 64px}
     }
   </style>
 </head>
@@ -54,30 +78,46 @@
     <aside class="sidebar">
       <h1 class="brand">Shreshta<br/>Prabhu</h1>
       <p class="tagline">Electrical Engineering @ University of Michigan</p>
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary">
         <a href="index.html" class="active">Home</a>
         <a href="about_page.html">About</a>
         <a href="experience.html">Experience</a>
         <a href="projects_page_shreshta_projects.html">Projects</a>
       </nav>
+
       <div class="icons">
-        <a class="icon" href="mailto:shreshta@umich.edu" title="Email"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg></a>
+        <a class="icon icon--mail" href="mailto:shreshta@umich.edu" title="Email" aria-label="Email">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/>
+          </svg>
+        </a>
+        <a class="icon icon--li" href="https://www.linkedin.com/in/shreshta-prabhu-242b95242/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <path fill="currentColor" d="M22.225 0H1.771C.792 0 0 .774 0 1.728v20.543C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.728C24 .774 23.2 0 22.225 0zM7.114 20.452H3.56V9h3.554v11.452zM5.337 7.433A2.07 2.07 0 1 1 5.337 3.293a2.07 2.07 0 0 1 0 4.14zM20.447 20.452h-3.554V14.89c0-1.327-.025-3.037-1.852-3.037-1.853 0-2.136 1.447-2.136 2.942v5.657H9.351V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 3.605 0 4.27 2.372 4.27 5.455v6.288z"/>
+          </svg>
+        </a>
       </div>
+
       <p class="license">© 2025 Shreshta Prabhu. All rights reserved.</p>
     </aside>
+
     <main class="content">
-      <h1>Welcome!</h1>
-      <div class="intro">
-        <p>I’m Shreshta, an electrical engineering student passionate about building reliable hardware systems — from avionics for student rocketry to autonomous robotics and energy-efficient computer architectures.</p>
-        <p>This site is a hub for my work, projects, and experiences. Feel free to explore!</p>
-      </div>
-      <div class="buttons">
-        <a href="about_page.html" class="btn">About Me!</a>
-        <a href="projects_page_shreshta_projects.html" class="btn"> My Projects</a>
-        <a href="experience.html" class="btn"> My Experience</a>
+      <div class="content__inner">
+        <h1 class="hero-title">Welcome!</h1>
+        <p class="lead">I’m Shreshta, a rising electrical engineering junior passionate about building reliable hardware systems - from avionics for student rocketry to autonomous robotics and energy-efficient compute architectures.</p>
+     <p class="lead"> This site is a hub for my projects, and experiences. Feel free to explore!</p>
+        <div class="btn-row">
+          <a class="btn" href="about_page.html">About Me!</a>
+          <a class="btn" href="projects.html">My Projects</a>
+          <a class="btn" href="experience.html">My Experience</a>
+          <a class="btn primary" href="resume.pdf" target="_blank" rel="noopener">Résumé (PDF)</a>
+        </div>
+
+       
       </div>
     </main>
   </div>
 </body>
 </html>
+
 
