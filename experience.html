@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About — Shreshta Prabhu</title>
+  <title>Experience — Shreshta Prabhu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
       --text: #1a1a1a;
       --muted: #555;
       --link: #4da3ff;
-      --border: #ddd;
+      --border: #e5e7eb;
       --content-max: 920px;
     }
     *{box-sizing:border-box}
@@ -43,23 +43,27 @@
 
     /* CONTENT */
     .content{background:#fff; padding:64px 72px 80px}
-    .content__inner{max-width: var(--content-max); margin-right:auto; margin-left:0}
+    .content__inner{max-width: var(--content-max); margin:0 auto}
+    .content h1{font-size:44px; line-height:1.15; margin:0 0 10px}
+    .section{font-size:22px; font-weight:700; margin:28px 0 8px}
+    .hr{height:1px; background:var(--border); border:0; margin:8px 0 22px}
 
-    /* ABOUT LAYOUT */
-    .about-title{font-size:44px; line-height:1.15; margin:0 0 22px}
-    .about-grid{display:grid; grid-template-columns: 220px 1fr; gap:28px; align-items:start}
-    .headshot{width:220px; aspect-ratio:1; border-radius:16px; border:1px solid var(--border); object-fit:cover}
-    .about p{margin:0 0 14px}
+    /* EXPERIENCE */
+    .jobs{display:block}
+    .job{padding:18px 0 20px; border-bottom:1px solid var(--border)}
+    .job:last-of-type{border-bottom:none}
+    .job h2{font-size:18px; margin:0 0 6px; line-height:1.3}
+    .job .meta{margin:0 0 6px; color:var(--muted); font-size:14px}
+    .job ul{margin:10px 0 0 20px; padding:0}
+    .job li{margin:6px 0}
+    /* Optional “top” bullets look good even if empty later */
+    .job ul.top{list-style:disc}
 
-    .email-cta{display:inline-block; margin-top:8px; padding:10px 14px; border-radius:12px; border:1px solid #1a1a1a; color:#fff; background:#1a1a1a; font-weight:600}
-    .email-cta:hover{text-decoration:none; transform:translateY(-1px)}
-
+    /* MOBILE */
     @media (max-width: 920px){
       .layout{grid-template-columns: 1fr}
       aside.sidebar{position:static; height:auto; padding:48px 24px}
       .content{padding:40px 24px 64px}
-      .about-grid{grid-template-columns: 1fr; gap:18px}
-      .headshot{width:160px; justify-self:start}
     }
   </style>
 </head>
@@ -70,8 +74,8 @@
       <p class="tagline">Electrical Engineering @ University of Michigan</p>
       <nav class="nav" aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="about_page.html" class="active">About</a>
-        <a href="experience.html">Experience</a>
+        <a href="about_page.html">About</a>
+        <a href="experience.html" class="active">Experience</a>
         <a href="projects_page_shreshta_projects.html">Projects</a>
       </nav>
 
@@ -91,67 +95,79 @@
       <p class="license">© 2025 Shreshta Prabhu. All rights reserved.</p>
     </aside>
 
-    
-    <main>
-      <h1>Experience</h1>
-      <section class="jobs">
-        <h2 class="section">Work Experience</h2>
-        <hr class="hr"/>
+    <!-- MAIN CONTENT -->
+    <main class="content">
+      <div class="content__inner">
+        <h1>Experience</h1>
 
-        <!-- SEEDER Group -->
-        <article class="job">
-          <h2>SEEDER Group, National University of Singapore</h2>
-          <p class="meta">Summer Research Intern · May 2025 – July 2025</p>
-          <ul class="top">
-          </ul>
-        </article>
+        <section class="jobs" aria-labelledby="work-exp">
+          <h2 id="work-exp" class="section">Work Experience</h2>
+          <hr class="hr"/>
 
-        <!-- Quest Global -->
-        <article class="job">
-          <h2>Quest Global</h2>
-          <p class="meta">Embedded Product Engineering Intern · May 2024 – July 2024</p>
-          <ul class="top">
-             </ul>
-        </article>
+          <!-- SEEDER Group -->
+          <article class="job">
+            <h2>SEEDER Group, National University of Singapore</h2>
+            <p class="meta">Summer Research Intern · May 2025 – July 2025</p>
+            <ul class="top">
+              <!-- Add highlights here -->
+            </ul>
+          </article>
 
-        <!-- Opri Lab -->
-        <article class="job">
-          <h2>Opri Lab, University of Michigan</h2>
-          <p class="meta">Undergraduate Researcher · Dec 2024 – May 2025</p>
-          <ul class="top">
-          </ul>
-        </article>
+          <!-- Quest Global -->
+          <article class="job">
+            <h2>Quest Global</h2>
+            <p class="meta">Embedded Product Engineering Intern · May 2024 – July 2024</p>
+            <ul class="top">
+              <!-- Add highlights here -->
+            </ul>
+          </article>
 
-        <h2 class="section">Leadership & Clubs</h2>
-        <hr class="hr"/>
+          <!-- Opri Lab -->
+          <article class="job">
+            <h2>Opri Lab, University of Michigan</h2>
+            <p class="meta">Undergraduate Researcher · Dec 2024 – May 2025</p>
+            <ul class="top">
+              <!-- Add highlights here -->
+            </ul>
+          </article>
+        </section>
 
-        <!-- MASA leadership -->
-        <article class="job">
-          <h2>Michigan Aeronautical Science Association (MASA)</h2>
-          <p class="meta"> DEI & Outreach Director · May 2025 – Present </p>
-          <p class="meta">Avionics Project Lead · Dec 2023 – Present </p>
-          <ul class="top">
-          </ul>
-        </article>
+        <section class="jobs" aria-labelledby="leadership">
+          <h2 id="leadership" class="section">Leadership &amp; Clubs</h2>
+          <hr class="hr"/>
 
-        <!-- Engineering Honors SAB -->
-        <article class="job">
-          <h2>Engineering Honors Student Advisory Board — University of Michigan</h2>
-          <p class="meta">President · May 2025 – Present</p>
-          <ul class="top">
-          </ul>
-        </article>
+          <!-- MASA leadership -->
+          <article class="job">
+            <h2>Michigan Aeronautical Science Association (MASA)</h2>
+            <p class="meta">DEI &amp; Outreach Director · May 2025 – Present</p>
+            <p class="meta">Avionics Project Lead · Dec 2023 – Present</p>
+            <ul class="top">
+              <!-- Add highlights here -->
+            </ul>
+          </article>
 
-        <!-- Michigan Sahana -->
-        <article class="job">
-          <h2>Michigan Sahana</h2>
-          <p class="meta">Committee Member · Jan 2025 – Present</p>
-          <ul class="top">
-          </ul>
-        </article>
-      </section>
+          <!-- Engineering Honors SAB -->
+          <article class="job">
+            <h2>Engineering Honors Student Advisory Board — University of Michigan</h2>
+            <p class="meta">President · May 2025 – Present</p>
+            <ul class="top">
+              <!-- Add highlights here -->
+            </ul>
+          </article>
+
+          <!-- Michigan Sahana -->
+          <article class="job">
+            <h2>Michigan Sahana</h2>
+            <p class="meta">Committee Member · Jan 2025 – Present</p>
+            <ul class="top">
+              <!-- Add highlights here -->
+            </ul>
+          </article>
+        </section>
+      </div>
     </main>
   </div>
 </body>
 </html>
+
 
