@@ -1,19 +1,140 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>MASA Rocketry — Power Distribution Board</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<style>body{margin:0;background:#0b0d12;color:#e9edf1;font-family:Inter,system-ui;line-height:1.65}a{color:#7bb3ff;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:900px;margin:0 auto;padding:28px 20px 64px}header{margin-bottom:18px}.crumb{font-size:14px;color:#aab3bf}h1{font-size:40px;margin:8px 0 14px}.meta{color:#aab3bf;font-size:15px;margin-bottom:24px}.card{background:#111318;border:1px solid #1f232b;border-radius:16px;padding:18px 18px 2px;margin:20px 0}img{max-width:100%;border-radius:14px}footer{margin-top:48px;color:#aab3bf;font-size:14px}</style>
-</head><body><div class="wrap">
-<header><a class="crumb" href="../index.html">← Back to projects</a></header>
-<h1>Power Distribution Board — MASA “Limelight”</h1>
-<div class="meta">Avionics Project Lead & Outreach Director — Dec 2023–Present</div>
-<p>Designed and validated a high-reliability PDB enabling seamless ground→flight battery transition. Performed switching tests and troubleshooting during integration; acted as Console Operator during cold-flow tests.</p>
-<div class="card"><h3>Highlights</h3><ul>
-<li>Schematic + PCB in Altium; isolation, fusing, and brown-out resilience.</li>
-<li>Oscilloscope-based validation under dynamic loads; mitigation of transients.</li>
-<li>Procedural checklists for GSE control during pre-launch sequences.</li>
-</ul></div>
-<div class="card"><h3>Tech</h3><p>Altium Designer, oscilloscopes/DMMs, high-side switching, DC-DC regulation.</p></div>
-<footer>© 2025 Shreshta Prabhu</footer>
-</div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MASA Avionics — Shreshta Prabhu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b0d12;--card:#111318;--border:#1f232b;--muted:#aab3bf;--text:#e9edf1;--brand:#7bb3ff;--chip:#151923}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui;line-height:1.65}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 20px 64px}
+    header{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+    .crumb{font-size:14px;color:var(--muted)}
+    .crumb:hover{color:var(--text);text-decoration:underline}
+    h1{font-size:40px;line-height:1.1;margin:8px 0 10px}
+    h2{font-size:22px;margin:0 0 8px}
+    h3{font-size:18px;margin:0 0 8px}
+    h4{font-size:16px;margin:14px 0 6px;color:#cfd6e2}
+    .meta{color:var(--muted);font-size:15px;margin-bottom:12px}
+    .tldr{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin:14px 0}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+    .chip{font-size:13px;background:var(--chip);border:1px solid var(--border);padding:6px 10px;border-radius:999px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin:16px 0}
+    .hero img{width:100%;border-radius:12px;border:1px solid var(--border);background:#0e1118}
+    .hero figcaption{color:var(--muted);font-size:13px;margin-top:6px}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .metric{background:#0e1118;border:1px solid var(--border);border-radius:12px;padding:10px;font-size:14px}
+    .metric b{display:block;font-size:18px;margin-bottom:2px}
+    details.more{margin-top:8px}
+    details.more > summary{cursor:pointer;list-style:none;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:#0e1118;color:var(--text)}
+    details.more[open] > summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
+    details.more .more-body{border:1px solid var(--border);border-top:0;border-bottom-left-radius:10px;border-bottom-right-radius:10px;padding:12px;background:#0f1219}
+    ul{margin:8px 0 0 18px} li{margin:6px 0}
+    @media (max-width:520px){.metrics{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <!-- Change href if your projects page is elsewhere -->
+      <a class="crumb" href="projects_page_shreshta_projects.html" onclick="if(history.length>1){history.back();return false;}">← Back to projects</a>
+    </header>
+
+    <h1>Avionics for MASA Rocketry</h1>
+    <div class="meta">Michigan Aeronautical Science Association (MASA) • Jan 2024 - Present </div>
+
+    <!-- NEW: Context intro for MASA & Avionics -->
+    <div class="card">
+      <h3>Context: MASA &amp; Avionics</h3>
+      <p>
+        <a href="https://masa.engin.umich.edu/" target="_blank" rel="noopener">MASA</a> is the University of Michigan’s premier student-led rocketry club. Our current project is
+        to launch and recover our most powerful rocket, <a href="https://masa.engin.umich.edu/Limelight/" target="_blank" rel="noopener">Limelight</a>, projected to reach an apogee of ~50,000 ft.
+        We achieved a successful hotfire this summer, firing our Phoenix liquid engine in the Mojave Desert for a clean 22-second burn.
+        We’re now fabricating Limelight’s main structure and integrating its electrical, plumbing, and ground-support systems. Looking ahead, launch is slated for December 2025.
+      </p>
+      <p>
+        <strong>MASA Avionics</strong> is responsible for the conception, fabrication, and programming of all flight-critical electrical systems,
+        including flight &amp; engine controllers, testing &amp; sensor boards, telemetry systems, and wire harnesses. Avionics works closely with ATLO and other subteams to
+        develop data-acquisition systems for major test events.
+      </p>
+      <h4>My Role in MASA Avionics ! </h4>
+      <ul>
+        <li><strong>Power Distribution Lead (Prior):</strong> Led the complete design and testing of Limelight’s power distribution board, <em>GridLime</em>.</li>
+        <li><strong>HIL/HITL for GSE (Present):</strong> Building a hardware-in-the-loop setup for the next rocket’s ground support equipment—running avionics firmware on physical hardware interfaced with simulated sensors/actuators to validate systems before full integration.</li>
+      </ul>
+    </div>
+
+    <div class="tldr"><strong>GridLime, Power Distribution Board:</strong> Single PCB that routes power from ground-support equipment (GSE) to avionics and performs a seamless switchover to flight batteries at launch, with reverse-polarity, ESD, and transient protection.</div>
+
+    <div class="chips">
+      <span class="chip">Role: Schematics &amp; Layout</span>
+      <span class="chip">Buses: 6 V / 12 V / 24 V</span>
+      <span class="chip">Up to 7 PCBs</span>
+      <span class="chip">28 V tolerant &amp; RP safe</span>
+    </div>
+
+    <div class="card">
+      <figure class="hero">
+        <!-- Replace with your image path -->
+        <img src="pdb_collage.png" alt="Design and Testing of Gridlime:Schematics, PCB renders, fabrication, assembly and bench test">
+        <figcaption>GridLime: System Block Diagram, PCB renders, fabrication, assembly, and successful bench test with electronic load.</figcaption>
+      </figure>
+    </div>
+
+    <div class="card">
+      <h3>Results</h3>
+      <div class="metrics">
+        <div class="metric"><b>28 V</b> forward input tolerance</div>
+        <div class="metric"><b>28 V</b> reverse-polarity protection</div>
+        <div class="metric"><b>7</b> downstream boards powered</div>
+      </div>
+      <ul>
+        <li>Seamless GSE → flight battery switchover (no brown-out observed in bench tests).</li>
+        <li>Stable rails under step loads on electronic load (add ripple/hold-up numbers when available).</li>
+      </ul>
+    </div>
+
+    <details class="more">
+      <summary>More details (requirements, design, validation)</summary>
+      <div class="more-body">
+        <div class="card">
+          <h3>Key Requirements</h3>
+          <ul>
+            <li><strong>PWR-04:</strong> Handle 28 V continuous input without damage.</li>
+            <li><strong>PWR-05:</strong> Handle 28 V continuous reverse polarity without damage.</li>
+            <li><strong>PWR-07:</strong> Distribute buses to up to 7 PCBs.</li>
+            <li><strong>PWR-09:</strong> Support 40 W @ 6 V, 120 W @ 12 V, 240 W @ 24 V.</li>
+            <li><strong>PWR-11:</strong> Uninterrupted power on GSE disconnect.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>Design Overview</h3>
+          <ul>
+            <li>GSE/flight-battery OR-ing and controlled switchover at launch trigger.</li>
+            <li>Reverse-polarity protection, TVS/ESD diodes, inrush limiting, transient suppression.</li>
+            <li>Dedicated connectors and indicators for each rail; test points for measurement.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>My Contributions</h3>
+          <ul>
+            <li>Schematic capture &amp; PCB layout for protection, OR-ing, rail distribution.</li>
+            <li>Defined switchover logic &amp; test plan; bench bring-up with electronic load.</li>
+            <li>Compliance documentation against PWR-04/05/07/09/11.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
+    <footer style="margin-top:28px;color:#aab3bf;font-size:14px">© 2025 Shreshta Prabhu</footer>
+  </div>
+</body>
+</html>
+
