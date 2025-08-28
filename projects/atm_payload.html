@@ -48,30 +48,26 @@
     </header>
 
     <h1>High-Altitude Atmospheric Analysis Electronics Payload</h1>
-    <div class="meta">Under Prof. Aaron Ridley • Climate &amp; Space Sciences &amp; Engineering (CLaSP) • University of Michigan • Jan - April 2024</div>
+    <div class="meta">Under Prof. Aaron Ridley • Climate &amp; Space Sciences &amp; Engineering (CLaSP) • University of Michigan • Jan – Apr 2024</div>
 
-    <div class="tldr"><strong>Overview:</strong> 1-lb weather-balloon payload with a custom PCB that logged temperature, pressure, humidity, acceleration, and GPS over a 2.2-hour flight. It passed a −40&nbsp;°C cold-chamber test and multiple shock/drop trials, achieved reliable data capture over the course of its flight and was safely recovered as well!</div>
+    <div class="tldr"><strong>Overview:</strong> 1-lb weather-balloon payload with a custom PCB that logged temperature, pressure, humidity, acceleration, and GPS over a 2.2-hour flight. It passed a −40&nbsp;°C cold-chamber test and multiple shock/drop trials, achieved reliable data capture over the course of its flight, and was safely recovered.</div>
 
     <div class="chips">
-      <span class="chip">Role: PCB &amp; Firmware, Structure & Testing</span>
-      <span class="chip">Tools: Altium Designer, Arduino IDE, SolidWorks </span>
+      <span class="chip">Role: PCB &amp; Firmware, Structure &amp; Testing</span>
+      <span class="chip">Tools: Altium Designer, Arduino IDE, SolidWorks</span>
     </div>
 
     <!-- Stacked images: design/testing first, then flight results -->
     <div class="card">
       <div class="gallery cols-1">
-        
         <figure>
           <img src="balloon_design_testing.png" alt="Design and testing collage: Altium schematic and board, block diagram, fabricated PCB and assembled payload">
           <figcaption>Design &amp; bench testing: schematic, PCB, fabricated boards, and assembled payload.</figcaption>
         </figure>
-
-      
         <figure>
           <img src="balloon_flight_results.png" alt="Flight results collage: stratosphere photo, flight path map, graphs of temperature, pressure, humidity, acceleration vs time">
           <figcaption>Flight results: stratosphere snapshot, flight path, and environmental/acceleration plots.</figcaption>
         </figure>
-        
       </div>
     </div>
 
@@ -100,8 +96,19 @@
       </ul>
     </div>
 
+    <!-- Move My Contributions OUTSIDE the accordion -->
+    <div class="card">
+      <h3>My Contributions</h3>
+      <ul>
+        <li>PCB design &amp; bring-up; sensor integration; microSD logging; GPS debugging and placement fix.</li>
+        <li>Structure co-design and insulation choice; test planning &amp; execution (cold chamber, elevator, drop/shock).</li>
+        <li>Budgets &amp; documentation; post-flight data review and interpretation.</li>
+      </ul>
+    </div>
+
+    <!-- Accordion with normal-weight content -->
     <details class="more">
-      <summary><strong>More details (budgets, data, methods)<strong> :</summary>
+      <summary><strong>Click for more details</strong> (budgets, data, methods)</summary>
       <div class="more-body">
         <div class="card">
           <h3>Budgets</h3>
@@ -113,14 +120,14 @@
         </div>
 
         <div class="card">
-      <h3>Test Campaign</h3>
-      <ul>
-        <li><strong>Cold chamber:</strong> −40&nbsp;°C for &ge; 2 hours; continuous logging.</li>
-        <li><strong>Elevator:</strong> 10 floors; pressure→altitude profile validated.</li>
-        <li><strong>Drop &amp; shock:</strong> 4-story drop and shock impacts; accelerometer spiking as expected; system remained operational.</li>
-        <li><strong>GPS:</strong> Initial failure due to placement; fixed and re-verified.</li>
-      </ul>
-    </div>
+          <h3>Test Campaign</h3>
+          <ul>
+            <li><strong>Cold chamber:</strong> −40&nbsp;°C for &ge; 2 hours; continuous logging.</li>
+            <li><strong>Elevator:</strong> 10 floors; pressure→altitude profile validated.</li>
+            <li><strong>Drop &amp; shock:</strong> 4-story drop and shock impacts; accelerometer spiking as expected; system remained operational.</li>
+            <li><strong>GPS:</strong> Initial failure due to placement; fixed and re-verified.</li>
+          </ul>
+        </div>
 
         <div class="card">
           <h3>Flight Data (Overview)</h3>
@@ -130,15 +137,6 @@
             <li>Accelerometer showed intermittent spikes from buffeting, twist, and rotation under wind.</li>
           </ul>
         </div>
-
-        <div class="card">
-          <h3>My Contributions</h3>
-          <ul>
-            <li>PCB design &amp; bring-up; sensor integration; microSD logging; GPS debugging and placement fix.</li>
-            <li>Structure co-design and insulation choice, test planning &amp; execution (cold chamber, elevator, drop/shock).</li>
-            <li>Budgets &amp; documentation as well as post-flight data review and interpretation.</li>
-          </ul>
-        </div>
       </div>
     </details>
 
@@ -146,4 +144,5 @@
   </div>
 </body>
 </html>
+
 
