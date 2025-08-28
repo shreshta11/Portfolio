@@ -1,18 +1,92 @@
-<!DOCTYPE html><html lang="en"><head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>Autonomous Rescue Operations Robot</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<style>body{margin:0;background:#0b0d12;color:#e9edf1;font-family:Inter,system-ui;line-height:1.65}a{color:#7bb3ff;text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:900px;margin:0 auto;padding:28px 20px 64px}header{margin-bottom:18px}.crumb{font-size:14px;color:#aab3bf}h1{font-size:40px;margin:8px 0 14px}.meta{color:#aab3bf;font-size:15px;margin-bottom:24px}.card{background:#111318;border:1px solid #1f232b;border-radius:16px;padding:18px 18px 2px;margin:20px 0}img{max-width:100%;border-radius:14px}footer{margin-top:48px;color:#aab3bf;font-size:14px}</style>
-</head><body><div class="wrap">
-<header><a class="crumb" href="../index.html">← Back to projects</a></header>
-<h1>Autonomous Rescue Operations Robot</h1>
-<div class="meta">Aug 2024–Dec 2024 — under Prof. Necmiye Ozay</div>
-<p>Integrated motor drivers, sensors, and power subsystems; wrote C/C++ control code on BeagleBone Blue and Arduino Nano for navigation, obstacle detection, and autonomous behaviors.</p>
-<div class="card"><h3>Highlights</h3><ul>
-<li>Sensor fusion for environmental mapping; robust serial/IPC between subsystems.</li>
-<li>Closed-loop motor control tuned for variable payloads and terrain.</li>
-</ul></div>
-<div class="card"><h3>Tech</h3><p>C/C++, BeagleBone Blue, Arduino Nano, PWM motor control, I²C/SPI/UART.</p></div>
-<footer>© 2025 Shreshta Prabhu</footer>
-</div></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Autonomous Rescue Operations Robot — Shreshta Prabhu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0b0d12;--card:#111318;--border:#1f232b;--muted:#aab3bf;--text:#e9edf1;--brand:#7bb3ff;--chip:#151923}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui;line-height:1.65}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 20px 64px}
+    header{display:flex;gap:12px;align-items:center;margin-bottom:10px}
+    .crumb{font-size:14px;color:var(--muted)}
+    .crumb:hover{color:var(--text);text-decoration:underline}
+    h1{font-size:40px;line-height:1.1;margin:8px 0 10px}
+    h2{font-size:22px;margin:0 0 8px}
+    h3{font-size:18px;margin:0 0 8px}
+    .meta{color:var(--muted);font-size:15px;margin-bottom:12px}
+    .tldr{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:12px 14px;margin:14px 0}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+    .chip{font-size:13px;background:var(--chip);border:1px solid var(--border);padding:6px 10px;border-radius:999px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:16px;margin:16px 0}
+    .gallery{display:grid;gap:12px}
+    .gallery.cols-1{grid-template-columns:1fr}
+    figure{margin:0}
+    .gallery img{width:100%;height:auto;border-radius:12px;border:1px solid var(--border);background:#0e1118}
+    figcaption{color:var(--muted);font-size:13px;margin-top:6px}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .metric{background:#0e1118;border:1px solid var(--border);border-radius:12px;padding:10px;font-size:14px}
+    .metric b{display:block;font-size:18px;margin-bottom:2px}
+    .video{display:grid;gap:8px}
+    video{width:100%;border-radius:12px;border:1px solid var(--border);background:#000}
+    @media (max-width:760px){.metrics{grid-template-columns:1fr 1fr}}
+    @media (max-width:520px){.metrics{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="crumb" href="projects_page_shreshta_projects.html" onclick="if(history.length>1){history.back();return false;}">← Back to projects</a>
+    </header>
+
+    <h1>Autonomous Rescue Operations Robot</h1>
+    <div class="meta">Under Prof. Necmiye Ozay • Electrical &amp; Computer Engineering (ECE) • University of Michigan • Jan – Apr 2024</div>
+
+    <div class="tldr">
+      <strong>Overview:</strong> An <strong>autonomous rescue robot</strong> for maze and search scenarios. It uses ultrasonic ranging and a thermal sensor
+      to navigate, avoid obstacles, detect heat sources (victims), and stop/alert with a buzzer, with closed-loop motor control for stable motion.
+    </div>
+
+    <div class="card">
+      <h3>Role &amp; Tools</h3>
+      <ul>
+        <li><strong>Software/Firmware:</strong> C/C++, Arduino IDE, VS Code/PlatformIO, Git</li>
+        <li><strong>Hardware:</strong> BeagleBone Blue, Arduino Nano, L298N motor driver, 74153 MUX, dual ultrasonic sensors, thermopile, buzzer</li>
+        <li><strong>Interfaces:</strong> PWM, I²C, SPI, UART</li>
+        <li><strong>Test &amp; Fabrication:</strong> Oscilloscope, Logic Analyzer, DMM, Bench Supply, 3D Printer, Soldering tools</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="gallery cols-1">
+        <figure>
+          <img src="system.png" alt="System analysis diagram for the autonomous rescue robot" loading="lazy" decoding="async">
+          <figcaption>Fig. 1 — System analysis and behavior outline (navigation, sensing, actuation).</figcaption>
+        </figure>
+        <figure>
+          <img src="InitialWiringDiagram.png" alt="Initial wiring diagram of motors, sensors, and controllers" loading="lazy" decoding="async">
+          <figcaption>Fig. 2 — Initial wiring diagram: motor drivers, ultrasonic sensors, thermopile, and controllers.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="card video">
+      <h3>Demo Video</h3>
+      <!-- Best: include an MP4 for widest browser support -->
+      <video controls preload="metadata" playsinline poster="system.png">
+        <source src="robot_demo.mp4" type="video/mp4">
+      <p class="meta">Path-following and heat “victim” detection: the robot follows the course, finds the orange bottle (thermal target/person), and beeps on detection.</p>
+    </div>
+
+    <footer style="margin-top:28px;color:#aab3bf;font-size:14px">© 2025 Shreshta Prabhu</footer>
+  </div>
+</body>
+</html>
+
+
+
