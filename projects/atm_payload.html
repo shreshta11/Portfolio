@@ -50,15 +50,12 @@
     <h1>High-Altitude Atmospheric Analysis Electronics Payload</h1>
     <div class="meta">Under Prof. Aaron Ridley • Climate &amp; Space Sciences &amp; Engineering (CLaSP) • University of Michigan • Jan - April 2024</div>
 
-    <div class="tldr"><strong>TL;DR:</strong> 1-lb weather-balloon payload with a custom PCB that logged temperature, pressure, humidity, acceleration, and GPS over a 2.2-hour flight. It passed a −40&nbsp;°C cold-chamber test and multiple shock/drop trials, achieved reliable data capture over the course of its flight and was safely recovered as well!</div>
+    <div class="tldr"><strong>Overview:</strong> 1-lb weather-balloon payload with a custom PCB that logged temperature, pressure, humidity, acceleration, and GPS over a 2.2-hour flight. It passed a −40&nbsp;°C cold-chamber test and multiple shock/drop trials, achieved reliable data capture over the course of its flight and was safely recovered as well!</div>
 
     <div class="chips">
-      <span class="chip">Role: PCB &amp; Firmware, Structure</span>
+      <span class="chip">Role: PCB &amp; Firmware, Structure & Testing</span>
+      <span class="chip">Tools: Altium Designer, Arduino IDE, SolidWorks </span>
       <span class="chip">Sensors: Temp / Pressure / Humidity / Accel / GPS</span>
-      <span class="chip">Data: microSD</span>
-      <span class="chip">Power: 4.56 W (16.28 Wh battery)</span>
-      <span class="chip">Mass: ≤ 1 lb (0.998 lb)</span>
-      <span class="chip">Tools: Altium Designer</span>
     </div>
 
     <!-- Stacked images: design/testing first, then flight results -->
@@ -80,7 +77,7 @@
     </div>
 
     <div class="card">
-      <h3>Results (Highlights)</h3>
+      <h3>Results (Highlights):</h3>
       <div class="metrics">
         <div class="metric"><b>133 min</b> flight duration</div>
         <div class="metric"><b>−40&nbsp;°C</b> cold-chamber (≥ 2 h)</div>
@@ -96,21 +93,11 @@
     </div>
 
     <div class="card">
-      <h3>What We Built</h3>
+      <h3>Design and Building:</h3>
       <ul>
         <li>Custom PCB (Altium) with temp, pressure, humidity, accelerometer, GPS, and microSD logging.</li>
         <li>Lightweight structure: styrofoam shell, internal wood frame &amp; battery bay, cotton insulation, plastic wrap.</li>
         <li>Integrated heating pad (5&nbsp;V, ~1&nbsp;A max) to maintain internal temps at altitude.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Test Campaign</h3>
-      <ul>
-        <li><strong>Cold chamber:</strong> −40&nbsp;°C for &ge; 2 hours; continuous logging.</li>
-        <li><strong>Elevator:</strong> 10 floors; pressure→altitude profile validated.</li>
-        <li><strong>Drop &amp; shock:</strong> 4-story drop and shock impacts; accelerometer spiking as expected; system remained operational.</li>
-        <li><strong>GPS:</strong> Initial failure due to placement; fixed and re-verified.</li>
       </ul>
     </div>
 
@@ -127,6 +114,16 @@
         </div>
 
         <div class="card">
+      <h3>Test Campaign</h3>
+      <ul>
+        <li><strong>Cold chamber:</strong> −40&nbsp;°C for &ge; 2 hours; continuous logging.</li>
+        <li><strong>Elevator:</strong> 10 floors; pressure→altitude profile validated.</li>
+        <li><strong>Drop &amp; shock:</strong> 4-story drop and shock impacts; accelerometer spiking as expected; system remained operational.</li>
+        <li><strong>GPS:</strong> Initial failure due to placement; fixed and re-verified.</li>
+      </ul>
+    </div>
+
+        <div class="card">
           <h3>Flight Data (Overview)</h3>
           <ul>
             <li>External temperature dropped to roughly −50&nbsp;°C at altitude; internal maintained around −10 to −20&nbsp;°C.</li>
@@ -140,8 +137,8 @@
           <h3>My Contributions</h3>
           <ul>
             <li>PCB design &amp; bring-up; sensor integration; microSD logging; GPS debugging and placement fix.</li>
-            <li>Structure co-design and insulation choice; test planning &amp; execution (cold chamber, elevator, drop/shock).</li>
-            <li>Budgets &amp; documentation; post-flight data review and interpretation.</li>
+            <li>Structure co-design and insulation choice, test planning &amp; execution (cold chamber, elevator, drop/shock).</li>
+            <li>Budgets &amp; documentation as well as post-flight data review and interpretation.</li>
           </ul>
         </div>
       </div>
