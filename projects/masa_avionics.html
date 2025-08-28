@@ -99,32 +99,62 @@
       </ul>
     </div>
 
-    <!--
+
 
     <details class="more">
-      <summary>Click for more details (requirements, design, validation) ! </summary>
-      <div class="more-body">
-        <div class="card">
-          <h3>Key Requirements</h3>
-          <ul>
-            <li><strong>PWR-04:</strong> Handle 28 V continuous input without damage.</li>
-            <li><strong>PWR-05:</strong> Handle 28 V continuous reverse polarity without damage.</li>
-            <li><strong>PWR-07:</strong> Distribute buses to up to 7 PCBs.</li>
-            <li><strong>PWR-09:</strong> Support 40 W @ 6 V, 120 W @ 12 V, 240 W @ 24 V.</li>
-            <li><strong>PWR-11:</strong> Uninterrupted power on GSE disconnect.</li>
-          </ul>
-        </div>
+  <summary>Click for more details (requirements, design, validation)</summary>
+  <div class="more-body">
+    <div class="card">
+      <h3>Key Requirements</h3>
+      <ul>
+        <li><strong>PWR-04:</strong> Handle 28 V continuous input without damage.</li>
+        <li><strong>PWR-05:</strong> Handle 28 V continuous reverse polarity without damage.</li>
+        <li><strong>PWR-07:</strong> Distribute buses to up to 7 PCBs.</li>
+        <li><strong>PWR-09:</strong> Support 40 W @ 6 V, 120 W @ 12 V, 240 W @ 24 V.</li>
+        <li><strong>PWR-11:</strong> Uninterrupted power on GSE disconnect.</li>
+      </ul>
+    </div>
 
-        <div class="card">
-          <h3>Design Overview</h3>
-          <ul>
-            <li>GSE/flight-battery OR-ing and controlled switchover at launch trigger.</li>
-            <li>Reverse-polarity protection, TVS/ESD diodes, inrush limiting, transient suppression.</li>
-            <li>Dedicated connectors and indicators for each rail; test points for measurement.</li>
-          </ul>
-        </div>
+    <div class="card">
+      <h3>Architecture — 3 Major Stages</h3>
+      <p class="meta">The PDB is divided into <em>Input Switching</em>, <em>Input Protection</em>, and <em>Voltage Conversion</em>.</p>
 
-        <div class="card">
+      <h4>A) Input Switching</h4>
+      <ul>
+        <li><strong>Flight Computer Input (1/2):</strong> 9-pin D-Sub from FC drives an optocoupler for electrical isolation; current-limit for LED and pull-down on gate drive.</li>
+        <li><strong>Flight Computer Input (2/2):</strong> Opto gate drive compared to an 18.5 V divider; over-the-top comparator lets battery exceed GSE safely; output divider limits PMOS V<sub>GS</sub> ≤ 20 V.</li>
+        <li><strong>Automatic Source Selection:</strong> Prioritize GSE when available; switch away when GSE ≈ (Flight − 1.5 V); full switchover by (Flight − 10 V). High-current 30 V PMOS + 8 W input diodes for RPP; 12 V Zener + resistor clamps V<sub>GS</sub> ≤ 20 V.</li>
+      </ul>
+
+      <h4>B) Input Protection</h4>
+      <ul>
+        <li><strong>Hot-swap &amp; Filtering:</strong> LTC4231 provides reverse-polarity, over-current, and UV/OV protection. Divider network scales voltages for trigger pins.</li>
+        <li><strong>Dual MOSFETs:</strong> One high-current device handles fault dissipation; the other provides reverse-polarity protection path.</li>
+      </ul>
+
+      <h4>C) Voltage Conversion</h4>
+      <ul>
+        <li><strong>Buck Converters (12 V &amp; 6 V):</strong> Dual LTC3780 controllers switching at 400 kHz; four MOSFETs per rail; rated 10 A per rail.</li>
+        <li><strong>Filtering:</strong> Input filtering upstream; output capacitor bank for ripple reduction.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Validation &amp; Testing</h3>
+      <ul>
+        <li><strong>Endurance:</strong> 5+ hours with ~100 W per bus.</li>
+        <li><strong>Load:</strong> 240 W (24 V), 120 W (12 V), 60 W (6 V).</li>
+        <li><strong>Ripple:</strong> Verified voltage &amp; current ripple within spec.</li>
+        <li><strong>Reverse Polarity:</strong> Survived −28 V.</li>
+        <li><strong>Over-current:</strong> Protection trips &gt;10 A per bus.</li>
+        <li><strong>Vibration:</strong> Passed bench vibration tests.</li>
+        <li><strong>Temperature:</strong> −20 °C to 80 °C range.</li>
+      </ul>
+    </div>
+  </div>
+</details>
+
+<div class="card">
           <h3>My Contributions</h3>
           <ul>
             <li>Schematic capture &amp; PCB layout for protection, OR-ing, rail distribution.</li>
@@ -134,7 +164,8 @@
         </div>
       </div>
     </details>
--->
+    
+    
     <footer style="margin-top:28px;color:#aab3bf;font-size:14px">© 2025 Shreshta Prabhu</footer>
   </div>
     
