@@ -3,168 +3,145 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>NoC DNN Accelerator using Processing-in-Memory(PIM) — Shreshta Prabhu</title>
+  <title>NoC DNN Accelerator using Processing-in-Memory (PIM) — Shreshta Prabhu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0b0d12;--card:#111318;--stroke:#1f232b;--muted:#aab3bf;--fg:#e9edf1;--link:#7bb3ff}
+    :root{--bg:#0b0d12;--card:#111318;--border:#1f232b;--muted:#aab3bf;--text:#e9edf1;--brand:#7bb3ff;--chip:#151923}
     *{box-sizing:border-box}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui;line-height:1.65}
-    a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:900px;margin:0 auto;padding:28px 20px 64px}
+    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui;line-height:1.65}
+    a{color:#7bb3ff;text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:980px;margin:0 auto;padding:28px 20px 64px}
     header{display:flex;gap:12px;align-items:center;margin-bottom:18px}
-    .crumb{font-size:14px;color:var(--muted)}
+    .crumb{font-size:14px;color:#aab3bf}
     h1{font-size:40px;line-height:1.1;margin:8px 0 14px}
-    h2,h3{margin:0 0 8px}
-    .meta{color:var(--muted);font-size:15px;margin-bottom:18px}
-    .card{background:var(--card);border:1px solid var(--stroke);border-radius:16px;padding:18px;margin:20px 0}
-    .hero{overflow:hidden;border-radius:16px;border:1px solid var(--stroke);margin:14px 0 20px}
-    img{max-width:100%;display:block}
+    h2{font-size:22px;margin:0 0 8px}
+    h3{font-size:18px;margin:0 0 8px}
+    .meta{color:#aab3bf;font-size:15px;margin-bottom:16px}
+    .tldr{background:#111318;border:1px solid #1f232b;border-radius:14px;padding:12px 14px;margin:14px 0}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 14px}
+    .chip{font-size:13px;background:#151923;border:1px solid #1f232b;padding:6px 10px;border-radius:999px}
+    .card{background:#111318;border:1px solid #1f232b;border-radius:16px;padding:16px;margin:16px 0}
     figure{margin:0}
-    figcaption{color:var(--muted);font-size:13px;margin-top:6px}
-    footer{margin-top:48px;color:var(--muted);font-size:14px}
-    /* simple media grid */
-    .grid{display:grid;gap:12px}
-    @media (min-width:720px){.grid-2{grid-template-columns:1fr 1fr}}
-    .pill{display:inline-block;padding:4px 10px;border:1px solid var(--stroke);border-radius:999px;color:var(--muted);font-size:12px;margin-right:8px}
-    ul{margin:0 0 8px 18px}
-    p{margin:0 0 10px}
+    img{max-width:100%;height:auto;border-radius:12px;border:1px solid #1f232b;background:#0e1118}
+    figcaption{color:#aab3bf;font-size:13px;margin-top:6px}
+    .metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .metric{background:#0e1118;border:1px solid #1f232b;border-radius:12px;padding:10px;font-size:14px}
+    .metric b{display:block;font-size:18px;margin-bottom:2px}
+    details.more{margin-top:8px}
+    details.more > summary{cursor:pointer;list-style:none;padding:10px 12px;border:1px solid #1f232b;border-radius:10px;background:#0e1118;color:#e9edf1}
+    details.more[open] > summary{border-bottom-left-radius:0;border-bottom-right-radius:0}
+    details.more .more-body{border:1px solid #1f232b;border-top:0;border-bottom-left-radius:10px;border-bottom-right-radius:10px;padding:12px;background:#0f1219}
+    ul{margin:8px 0 0 18px} li{margin:6px 0}
+    footer{margin-top:48px;color:#aab3bf;font-size:14px}
+    @media (max-width:760px){.metrics{grid-template-columns:1fr 1fr}}
+    @media (max-width:520px){.metrics{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <a class="crumb" href="../index.html">← Back to projects</a>
+      <a class="crumb" href="../projects_page_shreshta_projects.html" onclick="if(history.length>1){history.back();return false;}">← Back to projects</a>
     </header>
 
-    <h1>NoC Accelerator using Processing-in-Memory</h1>
+    <h1>NoC DNN Accelerator using Processing-in-Memory</h1>
     <div class="meta">SEEDER Group, National University of Singapore — May 2025–July 2025</div>
 
-    <!-- Intro + Hero -->
-    <p>
-      As LLMs scale, conventional GPU pipelines hit energy and memory-bandwidth limits. I designed and
-      simulated a <strong>Processing-in-Memory (PIM) Network-on-Chip (NoC) accelerator</strong> that targets
-      lower latency and energy per inference by pushing compute into memory arrays and optimizing on-chip
-      dataflow. This page summarizes the system architecture, dataflow strategies, RTL prototype, and the
-      bottlenecks I uncovered—plus the fixes that moved the needle.
-    </p>
+    <div class="tldr">
+      <strong>Goal:</strong> prototype a PIM-NoC accelerator for DNN inference that targets lower energy, lower latency, and higher
+      throughput than conventional CPU/GPU baselines. The design explores memory choices, NoC topologies, layer
+      mapping, routing, quantization, and an RTL micro-prototype that computes single-head attention.
+    </div>
 
-    <div class="hero">
+    <div class="chips">
+      <span class="chip">Role: Architecture &amp; RTL simulation</span>
+      <span class="chip">Focus: PIM + NoC for DNNs</span>
+      <span class="chip">Dataflow: Weight-stationary</span>
+      <span class="chip">Routing: X–Y (deterministic)</span>
+      <span class="chip">Quantization: Q16.16 fixed-point</span>
+      <span class="chip">Tools: Verilog/RTL, Python, PyTorch (baseline)</span>
+    </div>
+
+    <div class="card">
+      <h3>High-Level Architecture</h3>
+      <p>
+        Evaluated PIM options (DRAM/SRAM/HBM vs. emerging ReRAM/PCM) and NoC organizations (2D mesh vs. 3D stacked
+        logic+DRAM). The prototype uses a small PIM-NoC built from DRAM arrays, each node providing in-memory add/mul
+        and attached to a lightweight router. Nodes 1 &amp; 6 interface external memory for weights/inputs; the network uses
+        deterministic X–Y routing. <!-- add a diagram here if you have one -->
+      </p>
       <figure>
-        <img src="img/hero_pim_noc.png" alt="High-level PIM–NoC concept showing memory-centric compute and mesh interconnect">
-        <figcaption>High-level PIM–NoC concept: compute near memory, routed over a lightweight on-chip mesh.</figcaption>
+        <img src="noc_block.png" alt="Block diagram of the PIM-NoC: DRAM PIM nodes connected by a mesh with external memory at two edge nodes" loading="lazy" decoding="async">
+        <figcaption>Concept diagram — PIM nodes (DRAM + simple ALU) connected by a 2D mesh; edge nodes bridge to external memory.</figcaption>
       </figure>
     </div>
 
-    <!-- Quick tags (optional) -->
-    <p>
-      <span class="pill">PIM / DRAM</span>
-      <span class="pill">NoC (X–Y vs Adaptive)</span>
-      <span class="pill">LLM Inference</span>
-      <span class="pill">Quantization</span>
-      <span class="pill">RTL Simulation</span>
-    </p>
-
     <div class="card">
-      <h3>Design & Simulation</h3>
+      <h3>Dataflow &amp; Mapping</h3>
       <ul>
-        <li>Explored memory technologies (DRAM/SRAM/HBM vs ReRAM/PCM) and NoC topologies.</li>
-        <li>Built a <strong>6-node PIM-NoC RTL prototype</strong> (32×32 DRAM arrays, weight-stationary dataflow, fixed-point arithmetic).</li>
-        <li>Measured cycle-accurate latency and energy vs CPU baseline; profiled router hops and internal data movement.</li>
+        <li><strong>Layer mapping:</strong> weight-stationary (maximize weight reuse; reduce inter-node traffic).</li>
+        <li><strong>Tiling:</strong> weights &amp; inputs split into four blocks across nodes; broadcasts used for inputs.</li>
+        <li><strong>Routing:</strong> X–Y deterministic for simplicity &amp; deadlock-free operation.</li>
+        <li><strong>Quantization:</strong> 32-bit fixed-point (Q16.16) in the micro-prototype; roadmap includes 8-bit FP.</li>
       </ul>
-      <div class="grid grid-2" style="margin-top:12px">
-        <figure>
-          <img src="img/memory_stack.png" alt="3D-stacked DRAM with logic layer cross-section">
-          <figcaption>3D-stacked DRAM + logic: bandwidth where the data lives.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/router_mesh.png" alt="Mesh NoC diagram with routers and links">
-          <figcaption>Mesh-based NoC with per-tile PIM nodes and lightweight routers.</figcaption>
-        </figure>
-      </div>
     </div>
 
     <div class="card">
-      <h3>High-Level System Design</h3>
-      <p><strong>Memory Choices:</strong> Compared DRAM, SRAM, HBM, and emerging ReRAM/PCM technologies.</p>
-      <p><strong>NoC Architecture:</strong> Explored 3D-stacked DRAM + logic meshes vs router-based interconnects.</p>
-      <p><strong>Goal:</strong> Balance cost, latency, fabrication yield, and scalability.</p>
-      <div class="grid grid-2" style="margin-top:10px">
-        <figure>
-          <img src="img/mem_tradeoffs.png" alt="Chart of latency vs cost trade-offs across memory types">
-          <figcaption>Latency vs fabrication cost trade-offs across memory types.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/pim_node.png" alt="PIM node diagram: DRAM subarrays with adjacent MAC logic">
-          <figcaption>PIM node: DRAM subarrays with adjacent MAC and simple control.</figcaption>
-        </figure>
+      <h3>RTL Micro-Prototype</h3>
+      <p>
+        Implemented a 6-node PIM-NoC that performs single-head attention. Each node has a 32×32-bit DRAM scratchpad with
+        adjacent-row add/multiply, a simple router, and control FSMs. External logic orchestrates broadcasts, matrix ops, and SoftMax.
+      </p>
+      <div class="metrics">
+        <div class="metric"><b>6</b> PIM nodes (2 with external I/O)</div>
+        <div class="metric"><b>32×32-bit</b> DRAM per node</div>
+        <div class="metric"><b>3170</b> total cycles (attention)</div>
       </div>
+      <figure>
+        <img src="rtl_wave.png" alt="Waveform/trace from RTL simulation showing broadcast, matrix multiply/add, softmax, and egress phases" loading="lazy" decoding="async">
+        <figcaption>RTL trace — broadcast, matrix multiply/add, SoftMax, and egress phases across the mesh.</figcaption>
+      </figure>
     </div>
 
     <div class="card">
-      <h3>Dataflow & Routing Strategies</h3>
-      <p><strong>Layer Mapping:</strong> Implemented weight-stationary, output-stationary, and row-stationary approaches.</p>
-      <p><strong>Routing:</strong> Evaluated deterministic X–Y vs dynamic adaptive routing (pros/cons on congestion & deadlock risk).</p>
-      <p><strong>Quantization:</strong> Demonstrated 8-bit fixed-point inference with negligible accuracy loss for tested CNN/LLM kernels.</p>
-      <div class="grid grid-2" style="margin-top:10px">
-        <figure>
-          <img src="img/dataflow_compare.png" alt="Comparison diagram of weight-stationary, output-stationary, row-stationary dataflows">
-          <figcaption>Dataflow comparison: where reuse happens drives energy and buffer sizing.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/routing_xy_vs_adaptive.png" alt="Paths showing X–Y routing versus adaptive rerouting under congestion">
-          <figcaption>X–Y routing vs adaptive under load: simplicity vs throughput.</figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Low-Level RTL Simulation</h3>
-      <p><strong>Prototype:</strong> 6-node PIM-NoC model with 32×32-bit DRAM arrays.</p>
-      <p><strong>Dataflow:</strong> Weight-stationary, X–Y routing, fixed-point arithmetic.</p>
-      <p><strong>Results:</strong> 3,170 cycles per self-attention vs 25,000 cycles on CPU; 35&nbsp;µJ vs 75&nbsp;µJ energy.</p>
-      <div class="grid grid-2" style="margin-top:10px">
-        <figure>
-          <img src="img/rtl_block.png" alt="RTL block diagram of 6 PIM nodes and interconnect">
-          <figcaption>RTL block diagram of the 6-node prototype.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/timeline_cycles.png" alt="Timeline of pipeline stages and cycle counts for broadcast, MM, MA, SoftMax">
-          <figcaption>Cycle timeline across broadcast, matmul/add, and SoftMax stages.</figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>Benchmarking & Insights</h3>
-      <p><strong>Cycle Breakdown:</strong> 31% broadcast input, 26% matrix multiplication, 23% data movement, 20% matrix addition.</p>
-      <p><strong>Key Bottlenecks & Fixes:</strong></p>
+      <h3>Results</h3>
       <ul>
-        <li>Node-1 ingress bottleneck → add extra external links + adopt adaptive routing.</li>
-        <li>Excessive intra-array shuffles → quantize + increase per-node memory to reduce remapping.</li>
-        <li>SoftMax reshuffling → integrate FlashAttention-style streaming to overlap I/O and compute.</li>
+        <li><strong>Latency (RTL):</strong> 3,170 cycles for a single-head attention workload; cycle breakdown — broadcast (31%), matrix multiply (26%), matrix add (20%), data moves (23%).</li>
+        <li><strong>Energy vs. CPU baseline:</strong> ~35&nbsp;µJ (PIM-NoC) vs. ~75&nbsp;µJ (PC CPU model) for the same attention kernel.</li>
+        <li><strong>Network activity:</strong> 296 router hops and 224 intra-DRAM data moves for a single pass.</li>
       </ul>
-      <div class="grid grid-2" style="margin-top:10px">
-        <figure>
-          <img src="img/pie_cycles.png" alt="Pie chart of cycle breakdown by stage">
-          <figcaption>Where time goes: broadcast dominates under X–Y routing.</figcaption>
-        </figure>
-        <figure>
-          <img src="img/energy_latency.png" alt="Bar chart comparing energy and cycles vs CPU baseline">
-          <figcaption>Energy & latency improvements vs CPU baseline.</figcaption>
-        </figure>
-      </div>
     </div>
 
+    <details class="more">
+      <summary><strong>Click for observations &amp; improvements</strong></summary>
+      <div class="more-body">
+        <div class="card">
+          <h3>Hotspots &amp; Fixes</h3>
+          <ul>
+            <li><strong>Ingress bottleneck:</strong> external inputs funneled through a single edge node. <em>Mitigation:</em> add more external ports; adopt adaptive routing.</li>
+            <li><strong>Intra-DRAM reshuffles:</strong> 23% cycles spent moving partials due to tile limits. <em>Mitigation:</em> 8-bit FP quantization; larger per-node memory to reduce reshuffles.</li>
+            <li><strong>Duplicated MM/A around SoftMax:</strong> increase node count to parallelize; reduces MM/A time at the cost of more traffic.</li>
+            <li><strong>SoftMax staging:</strong> integrate FlashAttention-style streaming to avoid buffer reshuffles.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h3>What’s Next</h3>
+          <ul>
+            <li>Evaluate 3D stacked DRAM + logic and router-with-compute designs.</li>
+            <li>Move from Q16.16 to 8-bit FP with minimal accuracy loss; re-run energy/latency.</li>
+            <li>Replace X–Y with adaptive routing; formal deadlock analysis + traffic benchmarks.</li>
+          </ul>
+        </div>
+      </div>
+    </details>
+
     <div class="card">
-      <h3>My Role & Responsibilities</h3>
+      <h3>Artifacts</h3>
       <ul>
-        <li>Led end-to-end system design (memory selection, NoC architecture, dataflow strategy).</li>
-        <li>Developed RTL simulations and instrumentation for cycle/energy profiling.</li>
-        <li>Benchmarked against CPU/GPU baselines; analyzed router hops & DRAM movements.</li>
-        <li>Identified bottlenecks and proposed architectural fixes (links, adaptive routing, quantization, FlashAttention integration).</li>
-        <li>Authored technical report and diagrams consolidating findings.</li>
+        <li><a href="NOC.pdf">Report (PDF)</a></li>
+        <!-- Add RTL source or notebooks links here if public -->
       </ul>
     </div>
 
@@ -173,4 +150,3 @@
 </body>
 </html>
 
-</html>
