@@ -41,15 +41,53 @@
     </div>
 
      <div class="Observations">
-      <h3>Findings</h3>
-      <p>Lorem Ipsum</p>
+      <h3>High-Level System Design</h3>
+      <p>Memory Choices: Compared DRAM, SRAM, HBM, and emerging ReRAM/PCM technologies.</p>
+     </p>NoC Architecture: Explored 3D-stacked DRAM + logic meshes vs. router-based interconnects.
+</p>Goal: Balance cost, latency, and fabrication yield while maintaining scalability.</p>
     </div>
 
     <div class="card">
-      <h3>Findings</h3>
-      <p>Lorem Ipsum</p>
+      <h3>Dataflow & Routing Strategies</h3>
+      <p>Layer Mapping: Implemented weight-stationary, output-stationary, and row-stationary approaches.<p>
+<p>Routing: Evaluated deterministic (X-Y) vs. dynamic (adaptive) routing.
+<p>Quantization: Demonstrated 8-bit fixed-point inference with negligible accuracy loss.<p>
     </div>
 
+    <div class="Observations">
+      <h3>Low-Level RTL Simulation</h3>
+<p>Prototype: Built a 6-node PIM-NoC model with DRAM (32×32 bits).</p>
+<p>Dataflow: Weight-stationary, with X-Y routing and fixed-point quantization.<p>
+<p>Results:
+3,170 cycles per self-attention vs 25,000 cycles on CPU
+35 μJ energy vs 75 μJ on CPU <p>
+</div>
+
+    <div class="card">
+      <h3>Benchmarking & Insights</h3>
+      <p>Cycle Breakdown: 31% broadcast input, 26% matrix multiplication, 23% data movement, 20% matrix addition<p>
+<p>Key Bottlenecks & Fixes:
+
+🔴 Node 1 memory bottleneck → ➕ Added external connections & adaptive routing, Excessive data repositioning → ➕ Quantization + larger memory per node
+
+🔴 SoftMax reshuffling → ➕ Integrated FlashAttention </p>
+    </div>
+
+    <div class="card">
+      <h3>My Role & Responsibilities</h3>
+
+<p>Led end-to-end system design, from memory selection to NoC architecture.<p>
+
+<p>Developed RTL simulations to validate functionality and performance.<p>
+
+<p>Conducted benchmarking and comparison against CPU/GPU baselines.<p>
+
+<p>Identified bottlenecks and proposed practical architectural solutions.<p>
+
+<p>Documented findings in a technical report with academic-style references.<p>
+     </div>
+
+    
     <footer>© 2025 Shreshta Prabhu</footer>
   </div>
 </body>
