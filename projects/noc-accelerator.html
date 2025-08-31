@@ -54,8 +54,13 @@
       <figure>
         <img src="img/hero_pim_noc.png" alt="High-level PIM–NoC concept showing memory-centric compute and mesh interconnect">
         <figcaption>High-level PIM–NoC concept: compute near memory, routed over a lightweight on-chip mesh.</figcaption>
+      <img src="img/results.png" alt="High-level PIM–NoC concept showing memory-centric compute and mesh interconnect">
+        <figcaption>High-level PIM–NoC concept: compute near memory, routed over a lightweight on-chip mesh.</figcaption>
+     
       </figure>
     </div>
+
+
 
     <!-- Quick tags (optional) -->
     <p>
@@ -73,6 +78,7 @@
         <li>Built a <strong>6-node PIM-NoC RTL prototype</strong> (32×32 DRAM arrays, weight-stationary dataflow, fixed-point arithmetic).</li>
         <li>Measured cycle-accurate latency and energy vs CPU baseline; profiled router hops and internal data movement.</li>
       </ul>
+       <!--
       <div class="grid grid-2" style="margin-top:12px">
         <figure>
           <img src="img/memory_stack.png" alt="3D-stacked DRAM with logic layer cross-section">
@@ -83,6 +89,7 @@
           <figcaption>Mesh-based NoC with per-tile PIM nodes and lightweight routers.</figcaption>
         </figure>
       </div>
+      -->
     </div>
 
     <div class="card">
@@ -90,6 +97,8 @@
       <p><strong>Memory Choices:</strong> Compared DRAM, SRAM, HBM, and emerging ReRAM/PCM technologies.</p>
       <p><strong>NoC Architecture:</strong> Explored 3D-stacked DRAM + logic meshes vs router-based interconnects.</p>
       <p><strong>Goal:</strong> Balance cost, latency, fabrication yield, and scalability.</p>
+
+       <!--
       <div class="grid grid-2" style="margin-top:10px">
         <figure>
           <img src="img/mem_tradeoffs.png" alt="Chart of latency vs cost trade-offs across memory types">
@@ -100,6 +109,7 @@
           <figcaption>PIM node: DRAM subarrays with adjacent MAC and simple control.</figcaption>
         </figure>
       </div>
+      -->
     </div>
 
     <div class="card">
@@ -107,6 +117,8 @@
       <p><strong>Layer Mapping:</strong> Implemented weight-stationary, output-stationary, and row-stationary approaches.</p>
       <p><strong>Routing:</strong> Evaluated deterministic X–Y vs dynamic adaptive routing (pros/cons on congestion & deadlock risk).</p>
       <p><strong>Quantization:</strong> Demonstrated 8-bit fixed-point inference with negligible accuracy loss for tested CNN/LLM kernels.</p>
+       <!--
+      
       <div class="grid grid-2" style="margin-top:10px">
         <figure>
           <img src="img/dataflow_compare.png" alt="Comparison diagram of weight-stationary, output-stationary, row-stationary dataflows">
@@ -117,6 +129,7 @@
           <figcaption>X–Y routing vs adaptive under load: simplicity vs throughput.</figcaption>
         </figure>
       </div>
+      -->
     </div>
 
     <div class="card">
@@ -125,7 +138,7 @@
       <p><strong>Dataflow:</strong> Weight-stationary, X–Y routing, fixed-point arithmetic.</p>
       <p><strong>Results:</strong> 3,170 cycles per self-attention vs 25,000 cycles on CPU; 35&nbsp;µJ vs 75&nbsp;µJ energy.</p>
       <div class="grid grid-2" style="margin-top:10px">
-        <figure>
+        <!-- <figure>
           <img src="img/rtl_block.png" alt="RTL block diagram of 6 PIM nodes and interconnect">
           <figcaption>RTL block diagram of the 6-node prototype.</figcaption>
         </figure>
@@ -134,6 +147,7 @@
           <figcaption>Cycle timeline across broadcast, matmul/add, and SoftMax stages.</figcaption>
         </figure>
       </div>
+        -->
     </div>
 
     <div class="card">
@@ -145,6 +159,8 @@
         <li>Excessive intra-array shuffles → quantize + increase per-node memory to reduce remapping.</li>
         <li>SoftMax reshuffling → integrate FlashAttention-style streaming to overlap I/O and compute.</li>
       </ul>
+
+       <!--
       <div class="grid grid-2" style="margin-top:10px">
         <figure>
           <img src="img/pie_cycles.png" alt="Pie chart of cycle breakdown by stage">
@@ -155,6 +171,7 @@
           <figcaption>Energy & latency improvements vs CPU baseline.</figcaption>
         </figure>
       </div>
+      -->
     </div>
 
     <div class="card">
