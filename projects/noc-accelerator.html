@@ -43,11 +43,13 @@
 
     <!-- Intro + Hero -->
     <p>
-      As LLMs scale, conventional GPU pipelines hit energy and memory-bandwidth limits. I designed and
-      simulated a <strong>Processing-in-Memory (PIM) Network-on-Chip (NoC) accelerator</strong> that targets
-      lower latency and energy per inference by pushing compute into memory arrays and optimizing on-chip
-      dataflow. This page summarizes the system architecture, dataflow strategies, RTL prototype, and the
-      bottlenecks I uncovered—plus the fixes that moved the needle.
+      LLM scale is exposing energy and memory-bandwidth limits in GPU pipelines.
+      I designed and simulated a <strong>Processing-in-Memory (PIM) Network-on-Chip (NoC) accelerator (PIM + NoC)</strong>
+      accelerator that pushes compute into DRAM arrays and 
+      optimizes on-chip dataflow, cutting movement—the main cost driver—and lowering per-inference 
+      latency and energy. Below I outline the architecture, dataflow choices, an RTL prototype, 
+      and key bottlenecks with the fixes that helped.
+      
     </p>
 
     <div class="hero">
