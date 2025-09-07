@@ -62,6 +62,14 @@
       </ul>
     </div>
 
+    <div class="card video">
+      <h3>Demo Video: Path-following and heat “victim” detection (the robot follows the course, finds the orange bottle (thermal target/person), and beeps on detection)</h3>
+      <!-- Best: include an MP4 for widest browser support -->
+      <video controls preload="metadata" playsinline poster="system.png">
+        <source src="video0.mp4" type="video/mp4">
+    </div>
+
+    
     <div class="card">
       <div class="gallery cols-1">
         <figure>
@@ -73,13 +81,17 @@
       </div>
     </div>
 
-    <div class="card video">
-      <h3>Demo Video: Path-following and heat “victim” detection (the robot follows the course, finds the orange bottle (thermal target/person), and beeps on detection)</h3>
-      <!-- Best: include an MP4 for widest browser support -->
-      <video controls preload="metadata" playsinline poster="system.png">
-        <source src="robot_demo.mp4" type="video/mp4">
-    </div>
 
+    <section class="card" aria-labelledby="results">
+<h2 id="results">Results</h2>
+<div class="metrics" role="list">
+<div class="metric" role="listitem"><b>~15 cm</b>Obstacle detection range (ultrasonic)</div>
+<div class="metric" role="listitem"><b>&lt; 250 ms</b>Heat target detect-to-alert latency</div>
+<div class="metric" role="listitem"><b>Closed-loop</b> Proportional control for stable turns</div>
+</div>
+</section>
+</main>
+    
     <footer style="margin-top:28px;color:#aab3bf;font-size:14px">© 2025 Shreshta Prabhu</footer>
   </div>
 </body>
