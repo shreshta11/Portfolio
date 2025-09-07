@@ -43,13 +43,11 @@
 
     <!-- Intro + Hero -->
     <p>
-      LLM scale is exposing energy and memory-bandwidth limits in GPU pipelines.
-      I designed and simulated a <strong>Processing-in-Memory (PIM) Network-on-Chip (NoC) accelerator </strong>
-      accelerator that pushes compute into DRAM arrays and 
-      optimizes on-chip dataflow, cutting movement—the main cost driver—and lowering per-inference 
-      latency and energy. Below I outline the architecture, dataflow choices, an RTL prototype, 
-      and key bottlenecks with the fixes that helped.
-      
+      The rapid scaling of large language models is exposing fundamental energy and memory-bandwidth limits in GPU pipelines. 
+  To address this, I designed and simulated a <strong>Processing-in-Memory (PIM) Network-on-Chip (NoC) accelerator</strong> 
+  that integrates compute into DRAM arrays and optimizes on-chip dataflow. This approach reduces costly data movement and 
+  lowers per-inference latency and energy. Below, I outline the architecture, dataflow strategies, RTL prototype, and the 
+  bottlenecks encountered along with the fixes that proved effective.
     </p>
 
     <div class="hero">
@@ -73,7 +71,7 @@
       <span class="pill">Quantization</span>
       <span class="pill">RTL Simulation</span>
     </p>
-    -->
+
 
     <div class="card">
       <h3>Design & Simulation</h3>
@@ -97,11 +95,60 @@
     </div>
 
     <div class="card">
+      <h3>Design & Simulation</h3>
+      <ul>
+        <li>Explored memory technologies (DRAM/SRAM/HBM vs. ReRAM/PCM) and NoC topologies.</li>
+        <li>Built a <strong>6-node PIM–NoC RTL prototype</strong> (32×32 DRAM arrays, weight-stationary dataflow, fixed-point arithmetic).</li>
+        <li>Measured cycle-accurate latency and energy vs. CPU baseline; profiled router hops and internal data movement.</li>
+      </ul>
+    </div>
+
+    <div class="card">
       <h3>High-Level System Design</h3>
       <p><strong>Memory Choices:</strong> Compared DRAM, SRAM, HBM, and emerging ReRAM/PCM technologies.</p>
-      <p><strong>NoC Architecture:</strong> Explored 3D-stacked DRAM + logic meshes vs router-based interconnects.</p>
+      <p><strong>NoC Architecture:</strong> Explored 3D-stacked DRAM + logic meshes vs. router-based interconnects.</p>
       <p><strong>Goal:</strong> Balance cost, latency, fabrication yield, and scalability.</p>
+    </div>
 
+    <div class="card">
+      <h3>Dataflow & Routing Strategies</h3>
+      <p><strong>Layer Mapping:</strong> Implemented weight-stationary, output-stationary, and row-stationary approaches.</p>
+      <p><strong>Routing:</strong> Evaluated deterministic X–Y vs. dynamic adaptive routing (pros/cons on congestion & deadlock risk).</p>
+      <p><strong>Quantization:</strong> Demonstrated 8-bit fixed-point inference with negligible accuracy loss for tested CNN/LLM kernels.</p>
+    </div>
+
+    <div class="card">
+      <h3>Low-Level RTL Simulation</h3>
+      <p><strong>Prototype:</strong> 6-node PIM–NoC model with 32×32-bit DRAM arrays.</p>
+      <p><strong>Dataflow:</strong> Weight-stationary, X–Y routing, fixed-point arithmetic.</p>
+      <p><strong>Results:</strong> 3,170 cycles per self-attention vs. 25,000 cycles on CPU; 35&nbsp;µJ vs. 75&nbsp;µJ energy.</p>
+    </div>
+
+    <div class="card">
+      <h3>Benchmarking & Insights</h3>
+      <p><strong>Cycle Breakdown:</strong> 31% broadcast input, 26% matrix multiplication, 23% data movement, 20% matrix addition.</p>
+      <p><strong>Key Bottlenecks & Fixes:</strong></p>
+      <ul>
+        <li>Node-1 ingress bottleneck → add extra external links + adopt adaptive routing.</li>
+        <li>Excessive intra-array shuffles → quantize + increase per-node memory to reduce remapping.</li>
+        <li>SoftMax reshuffling → integrate FlashAttention-style streaming to overlap I/O and compute.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>My Role & Responsibilities</h3>
+      <ul>
+        <li>Led system design (memory selection, NoC architecture, dataflow strategy).</li>
+        <li>Developed RTL simulations and instrumentation for cycle/energy profiling.</li>
+        <li>Benchmarked against CPU/GPU baselines; analyzed router hops & DRAM movements.</li>
+        <li>Identified bottlenecks and proposed fixes (links, adaptive routing, quantization, FlashAttention).</li>
+        <li>Authored technical report and diagrams consolidating findings.</li>
+      </ul>
+    </div>
+
+
+
+      
        <!--
       <div class="grid grid-2" style="margin-top:10px">
         <figure>
@@ -113,7 +160,7 @@
           <figcaption>PIM node: DRAM subarrays with adjacent MAC and simple control.</figcaption>
         </figure>
       </div>
-      -->
+
     </div>
 
     <div class="card">
@@ -133,9 +180,10 @@
           <figcaption>X–Y routing vs adaptive under load: simplicity vs throughput.</figcaption>
         </figure>
       </div>
-      -->
+
     </div>
 
+    
     <div class="card">
       <h3>Low-Level RTL Simulation</h3>
       <p><strong>Prototype:</strong> 6-node PIM-NoC model with 32×32-bit DRAM arrays.</p>
@@ -151,7 +199,7 @@
           <figcaption>Cycle timeline across broadcast, matmul/add, and SoftMax stages.</figcaption>
         </figure>
       </div>
-        -->
+
     </div>
 
     <div class="card">
@@ -175,7 +223,7 @@
           <figcaption>Energy & latency improvements vs CPU baseline.</figcaption>
         </figure>
       </div>
-      -->
+   
     </div>
 
     <div class="card">
@@ -188,7 +236,7 @@
         <li>Authored technical report and diagrams consolidating findings.</li>
       </ul>
     </div>
-
+-->
     <footer>© 2025 Shreshta Prabhu</footer>
   </div>
 </body>
