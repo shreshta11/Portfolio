@@ -48,7 +48,7 @@
     <div class="meta">Under Prof. Necmiye Ozay • Electrical &amp; Computer Engineering (ECE) • University of Michigan • Jan – Apr 2024</div>
 
     <div class="tldr">
-      <strong>Overview:</strong> An <strong>autonomous rescue robot</strong> for search and rescue scenarios. It uses ultrasonic ranging and a thermal sensor
+      <strong>Overview:</strong> A mini autonomous rescue robotfor search and rescue scenarios. It uses ultrasonic ranging and a thermal sensor
       to navigate, avoid obstacles, detect heat sources (victims), and stop/alert with a buzzer, with closed-loop motor control for stable motion.
     </div>
 
@@ -65,7 +65,7 @@
       <h3>Demo Video: Path-following and heat “victim” detection (the robot follows the course, finds the orange bottle (thermal target/person), and beeps on detection)</h3>
       <!-- Best: include an MP4 for widest browser support -->
       <video controls preload="metadata" playsinline poster="system.png">
-        <source src="video0.mp4" type="video/mp4">
+        <source src="robot_demo.mp4" type="video/mp4">
     </div>
 
     
@@ -75,7 +75,8 @@
       <img src="systemm.png" alt="System design flow diagram and wiring schematic of the autonomous rescue robot" loading="lazy" decoding="async">
       <figcaption>
         Fig. 2: System design and wiring — Left: high-level design flow outlining navigation, sensing, and actuation. 
-        Right: wiring schematic with Arduino Nano, dual ultrasonic sensors, thermal sensor, multiplexer, and motor driver connections.
+        <u> </u>
+        Right: Wiring schematic with Arduino Nano, dual ultrasonic sensors, thermal sensor, multiplexer, and motor driver connections.
       </figcaption>
     </figure>
   </div>
@@ -88,8 +89,9 @@
     <figure>
       <img src="robot_pcb_combo.png" alt="Custom thermopile PCB and assembled autonomous rescue robot" loading="lazy" decoding="async">
       <figcaption>
-        Fig. 3: Hardware implementation — Left: custom thermopile sensor PCB with instrumentation amplifier (AD623) for victim heat detection. 
-        Right: autonomous rescue robot assembly with Arduino Nano, motor driver, dual ultrasonic sensors, and thermopile module integrated on chassis.
+        Fig. 3: Hardware implementation - Left: Custom thermopile sensor PCB with instrumentation amplifier <!--(AD623)--> for victim heat detection.
+                <u> </u>
+                 Right: Autonomous rescue robot assembly with Arduino Nano, motor driver, dual ultrasonic sensors, and thermopile module integrated on chassis.
       </figcaption>
     </figure>
   </div>
